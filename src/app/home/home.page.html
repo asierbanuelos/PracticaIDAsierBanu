@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Informe de Población</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-container">
+    <!-- Gráfico de barras -->
+    <div class="chart-container">
+      <canvas #barChartCanvas></canvas>
+    </div>
+
+    <!-- Gráfico de líneas -->
+    <div class="chart-container">
+      <canvas #lineChartCanvas></canvas>
+    </div>
+
+    <!-- Gráfico de pastel -->
+    <div class="chart-container">
+      <canvas #pieChartCanvas></canvas>
+    </div>
+
+    <!-- Botón para generar el PDF -->
+    <ion-button expand="full" (click)="generarPDF()">Generar Informe en PDF</ion-button>
+  </div>
+</ion-content>
+
+<style>
+  .content-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center; /* Centrar todo el contenido */
+  }
+
+  .chart-container {
+    width: 100%;
+    max-width: 600px; /* Limitar el tamaño máximo */
+    height: 250px; /* Tamaño más pequeño */
+    display: flex;
+    justify-content: center; /* Centrar el gráfico dentro del contenedor */
+    align-items: center;
+  }
+
+  canvas {
+    width: 100% !important; /* Asegurarse de que el canvas sea responsivo */
+    height: auto !important; /* Mantener la proporción del gráfico */
+  }
+
+  ion-button {
+    margin-top: 20px;
+    max-width: 250px; /* Limitar el tamaño del botón */
+  }
+
+  /* Estilos responsivos */
+  @media (max-width: 600px) {
+    .chart-container {
+      height: 200px; /* Reducir el tamaño en pantallas pequeñas */
+    }
+
+    ion-button {
+      width: 100%; /* Botón completamente ancho en pantallas pequeñas */
+    }
+  }
+</style>
